@@ -1,0 +1,37 @@
+{
+  "name": "paytech-node-ts-sdk",
+  "version": "1.0.0",
+  "description": "PayTech SDK for seamless payment integrations",
+  "main": "dist/paytech.js",
+  "types": "dist/paytech.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "jest"
+  },
+  "author": "Adramé Diakhaté",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "undici": "^7.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdrameDiakhate/paytech-sdk.git"
+  },
+  "keywords": [
+    "paytech",
+    "payment",
+    "sdk",
+    "typescript",
+    "api",
+    "node"
+  ]
+}

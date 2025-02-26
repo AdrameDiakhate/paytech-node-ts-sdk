@@ -1,0 +1,1 @@
+import { PayTech } from './paytech';
