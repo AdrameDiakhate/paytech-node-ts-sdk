@@ -8,7 +8,7 @@ describe("PayTech SDK", () => {
         apiSecret: "test-api-secret",
     };
 
-    const paytech = new PayTech(mockConfig,"test");
+    const paytech = new PayTech(mockConfig);
 
     beforeEach(() => {
         jest.clearAllMocks();
@@ -28,6 +28,7 @@ describe("PayTech SDK", () => {
             ipn_url: "https://example.com/ipn",
             success_url: "https://example.com/success",
             cancel_url: "https://example.com/cancel",
+            env: "test"
         };
 
         const mockResponse = {
@@ -68,6 +69,7 @@ describe("PayTech SDK", () => {
             ipn_url: "https://example.com/ipn",
             success_url: "https://example.com/success",
             cancel_url: "https://example.com/cancel",
+            env: "test"
         };
 
         await expect(paytech.createPayment(paymentData)).rejects.toThrow("Erreur API");

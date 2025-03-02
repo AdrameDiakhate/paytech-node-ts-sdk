@@ -8,6 +8,7 @@ export interface PayTechPaymentParams {
     success_url: string;
     cancel_url: string;
     custom_field?: Record<string, any>;
+    env: string;
 }
 
 export interface PayTechConfig {
@@ -19,13 +20,11 @@ export class PayTech {
     private apiKey: string;
     private apiSecret: string;
     private apiUrl: string;
-    private env: string;
 
-    constructor(config: PayTechConfig, env: string) {
+    constructor(config: PayTechConfig) {
         this.apiKey = config.apiKey;
         this.apiSecret = config.apiSecret;
         this.apiUrl = "https://paytech.sn/api/payment/request-payment";
-        this.env = env;
     }
 
     async createPayment(params: PayTechPaymentParams) {
@@ -34,6 +33,7 @@ export class PayTech {
             currency: params.currency || "XOF",
             command_name: params.command_name || `Paiement ${params.item_name}`,
             custom_field: JSON.stringify(params.custom_field || {}),
+            env: params.env,
         };
 
         const headers = {
