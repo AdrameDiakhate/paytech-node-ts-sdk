@@ -18,13 +18,6 @@ PAYTECH_API_SECRET=Votre_API_SECRET
 
 Ces clés sont fournies par PayTech lorsque vous vous inscrivez.
 
-Valeur de env
-Le paramètre env définit l'environnement dans lequel vous souhaitez opérer :
-
-test : Utilisé pour les tests en local.
-prod : Utilisé pour la production. (Contactez l'équipe de PayTech pour activer votre compte en production.)
-
-
 🚀 Utilisation
 1️⃣ Créer une instance du SDK
 
@@ -37,11 +30,8 @@ const paytech = new PayTech(
     apiKey: process.env.PAYTECH_API_KEY!,
     apiSecret: process.env.PAYTECH_API_SECRET!,
   },
-  "test" // ou "prod" selon votre besoin
+  env // le parametre env peut prendre les valeurs suivants: "test" ou "prod" selon votre besoin (Contactez l'équipe de PayTech pour activer votre compte en production.)
 );
-Note : Vous devez créer un fichier .env à la racine de votre projet et y inclure les informations apiKey, apiSecret et env.
-Pour récupérer votre apiKey et apiSecret, inscrivez-vous sur la plateforme PayTech.
-
 
 2️⃣ Créer un paiement
 

@@ -1,6 +1,6 @@
 {
   "name": "paytech-node-ts-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "PayTech SDK for seamless payment integrations",
   "main": "dist/paytech.js",
   "types": "dist/paytech.d.ts",
