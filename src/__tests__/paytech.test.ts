@@ -1,6 +1,5 @@
 import { PayTech, PayTechConfig, PayTechPaymentParams } from "../paytech";
 
-// Mock de fetch
 global.fetch = jest.fn();
 
 describe("PayTech SDK", () => {
@@ -9,10 +8,10 @@ describe("PayTech SDK", () => {
         apiSecret: "test-api-secret",
     };
 
-    const paytech = new PayTech(mockConfig);
+    const paytech = new PayTech(mockConfig,"test");
 
     beforeEach(() => {
-        jest.clearAllMocks(); // Nettoie les mocks avant chaque test
+        jest.clearAllMocks();
     });
 
     it("devrait être instancié avec les bonnes valeurs", () => {
@@ -22,7 +21,6 @@ describe("PayTech SDK", () => {
     });
 
     it("devrait créer un paiement avec les bons paramètres", async () => {
-        // Données de paiement simulées
         const paymentData: PayTechPaymentParams = {
             item_name: "Produit Test",
             item_price: "50000",
@@ -32,7 +30,6 @@ describe("PayTech SDK", () => {
             cancel_url: "https://example.com/cancel",
         };
 
-        // Simuler une réponse de l'API PayTech
         const mockResponse = {
             success: true,
             redirect_url: "https://paytech.sn/payment/redirect",
@@ -42,10 +39,8 @@ describe("PayTech SDK", () => {
             json: jest.fn().mockResolvedValue(mockResponse),
         } as any);
 
-        // Appel de la fonction
         const response = await paytech.createPayment(paymentData);
 
-        // Vérification des résultats
         expect(fetch).toHaveBeenCalledTimes(1);
         expect(fetch).toHaveBeenCalledWith(
             "https://paytech.sn/api/payment/request-payment",
@@ -56,7 +51,7 @@ describe("PayTech SDK", () => {
                     API_KEY: "test-api-key",
                     API_SECRET: "test-api-secret",
                 }),
-                body: expect.any(String), // Vérifier que le body est bien une string JSON
+                body: expect.any(String),
             })
         );
 
