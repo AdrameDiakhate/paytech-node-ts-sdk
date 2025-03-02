@@ -38,11 +38,11 @@ Utilisez la méthode createPayment() pour générer un lien de paiement :
 
 const paymentData = {
   item_name: "Iphone 7",
-  item_price: "560000",  // prix de l'élément en devise
-  ref_command: "HBZZYZVUZZZV", // référence unique pour la commande
-  ipn_url: "https://domaine.com/ipn", // URL pour recevoir les notifications de paiement
-  success_url: "https://domaine.com/success", // URL de redirection en cas de succès
-  cancel_url: "https://domaine.com/cancel", // URL de redirection en cas d'annulation
+  item_price: "560000", 
+  ref_command: "HBZZYZVUZZZV",
+  ipn_url: "https://domaine.com/ipn",
+  success_url: "https://domaine.com/success",
+  cancel_url: "https://domaine.com/cancel", 
   env: 'test'
 };
 
@@ -60,7 +60,7 @@ ref_command : Une référence unique pour identifier la commande.
 ipn_url : L'URL où PayTech enverra des notifications IPN (Instant Payment Notification) lors de l'évolution du paiement.
 success_url : L'URL où l'utilisateur sera redirigé en cas de paiement réussi.
 cancel_url : L'URL où l'utilisateur sera redirigé en cas d'annulation du paiement.
-le parametre env peut prendre les valeurs suivants: "test" ou "prod" selon votre besoin (Contactez l'équipe de PayTech pour activer votre compte en production.)
+env: // C'est l'environnement dans lequel tu utilise paytech. Il a deux valeurs possibles: "test" ou "prod" selon votre besoin (Contactez l'équipe de PayTech pour activer votre compte en production.)
 
 Note : Assurez-vous que votre serveur est configuré pour accepter des requêtes POST vers l'URL ipn_url pour la gestion des notifications de paiement.
 
